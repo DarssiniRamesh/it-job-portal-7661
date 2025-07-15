@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import JobList from "./pages/JobList";
 import JobDetail from "./pages/JobDetail";
 import PostJob from "./pages/PostJob";
+import EmployerDashboard from "./pages/EmployerDashboard";
 import MyApplications from "./pages/MyApplications";
 import Profile from "./pages/Profile";
 
@@ -52,6 +53,7 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/jobs" element={<JobList />} />
                 <Route path="/jobs/post" element={<PostJob />} />
+                <Route path="/employer" element={<EmployerDashboard />} />
                 <Route path="/jobs/:jobId" element={<JobDetail />} />
                 <Route path="/applications" element={<MyApplications />} />
                 <Route path="/profile" element={<Profile />} />

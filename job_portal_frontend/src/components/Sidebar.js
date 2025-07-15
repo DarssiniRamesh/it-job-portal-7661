@@ -19,8 +19,27 @@ function Sidebar() {
       <ul className="sidebar-nav">
         <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "active" : ""}>Dashboard</NavLink></li>
         <li><NavLink to="/jobs" className={({ isActive }) => isActive ? "active" : ""}>Job Listings</NavLink></li>
-        <li><NavLink to="/jobs/post" className={({ isActive }) => isActive ? "active" : ""}>Post a Job</NavLink></li>
-        <li><NavLink to="/applications" className={({ isActive }) => isActive ? "active" : ""}>Applications</NavLink></li>
+        {isLoggedIn && user && user.is_employer && (
+          <>
+            <li>
+              <NavLink to="/employer" className={({ isActive }) => isActive ? "active" : ""}>
+                Employer Dashboard
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/jobs/post" className={({ isActive }) => isActive ? "active" : ""}>
+                Post a Job
+              </NavLink>
+            </li>
+          </>
+        )}
+        {(!isLoggedIn || !user || !user.is_employer) && (
+          <li>
+            <NavLink to="/applications" className={({ isActive }) => isActive ? "active" : ""}>
+              Applications
+            </NavLink>
+          </li>
+        )}
         <li><NavLink to="/profile" className={({ isActive }) => isActive ? "active" : ""}>Profile</NavLink></li>
       </ul>
       <div className="sidebar-auth">
