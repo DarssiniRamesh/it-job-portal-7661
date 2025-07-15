@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
+import { AuthContext } from "../contexts/AuthContext";
 
 // PUBLIC_INTERFACE
 function Sidebar() {
   /**
    * Navigation sidebar for dashboard layout.
-   * Shows core pages/sections of the job portal as per design spec.
+   * Conditionally renders auth navigation.
    */
-  // TODO: Add logo/icon if required in final styling.
+  const { isLoggedIn, user, logout } = useContext(AuthContext);
+
   return (
     <nav className="sidebar">
       <div className="sidebar-brand">
@@ -22,8 +24,22 @@ function Sidebar() {
         <li><NavLink to="/profile" className={({ isActive }) => isActive ? "active" : ""}>Profile</NavLink></li>
       </ul>
       <div className="sidebar-auth">
-        <NavLink to="/login" className={({ isActive }) => isActive ? "active" : ""}>Login</NavLink> /
-        <NavLink to="/register" className={({ isActive }) => isActive ? "active" : ""}>Register</NavLink>
+        {isLoggedIn ? (
+          <>
+            <span style={{marginRight:"0.6em", color:"#555"}}>Logged in{user && user.email ? `: ${user.email}` : ""}</span>
+            <button style={{
+              background: "none", border: "none", color: "#007bff",
+              fontWeight: 600, cursor: "pointer", textDecoration:"underline"
+            }}
+              onClick={logout}
+            >Logout</button>
+          </>
+        ) : (
+          <>
+            <NavLink to="/login" className={({ isActive }) => isActive ? "active" : ""}>Login</NavLink> /
+            <NavLink to="/register" className={({ isActive }) => isActive ? "active" : ""}>Register</NavLink>
+          </>
+        )}
       </div>
     </nav>
   );
