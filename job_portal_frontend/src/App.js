@@ -9,7 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import JobList from "./pages/JobList";
 import JobDetail from "./pages/JobDetail";
 import PostJob from "./pages/PostJob";
-import ApplicationTracking from "./pages/ApplicationTracking";
+import MyApplications from "./pages/MyApplications";
 import Profile from "./pages/Profile";
 
 /** 
@@ -53,7 +53,7 @@ function App() {
                 <Route path="/jobs" element={<JobList />} />
                 <Route path="/jobs/post" element={<PostJob />} />
                 <Route path="/jobs/:jobId" element={<JobDetail />} />
-                <Route path="/applications" element={<ApplicationTracking />} />
+                <Route path="/applications" element={<MyApplications />} />
                 <Route path="/profile" element={<Profile />} />
                 {/* Add other portal/dash pages here */}
                 <Route path="*" element={<div className="page-content"><h2>404 - Not Found</h2></div>} />
