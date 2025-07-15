@@ -3,33 +3,28 @@
   min-height: 100vh;
   background: var(--bg-primary);
 }
+
 .main-content {
   margin-left: 220px;
   flex: 1 1 auto;
   min-height: 100vh;
-  padding: 2.5rem 2rem 2rem 2rem;
+  padding: 2.8rem 2.1rem 2.1rem 2.1rem;
   background: var(--bg-primary);
   color: var(--text-primary);
-  transition: margin 0.2s;
+  transition: margin 0.2s, background 0.3s;
 }
+
+/* Responsive sidebar collapse */
 @media (max-width: 900px) {
   .main-content {
     margin-left: 58vw;
     min-width: 220px;
-    padding: 1.4rem 1.2rem 1.2rem 1.2rem;
+    padding: 1.6rem 1.1rem 1.1rem 1.3rem;
   }
 }
 @media (max-width: 650px) {
   .main-content {
     margin-left: 0;
-    padding: 1.1rem 0.5rem;
+    padding: 0.85rem 0.45rem;
   }
-}
-.page-content {
-  max-width: 740px;
-  margin: auto;
-  padding: 1rem;
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 4px 24px rgba(50,50,70,0.07);
-  border-radius: 10px;
 }
